@@ -1,0 +1,8 @@
+# -*- mode: conf -*-
+
+[Desktop Entry]
+Comment=GNOME session management + sway
+Exec=gnome-session --session=sway-gnome
+Name=GNOME + sway
+TryExec=gnome-session
+Type=Application
