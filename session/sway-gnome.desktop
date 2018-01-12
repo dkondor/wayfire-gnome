@@ -5,6 +5,7 @@ Comment=Improved dynamic tiling window manager, registers with gnome session man
 Exec=sway-gnome
 Name=sway-gnome
 Type=Application
+NoDisplay=true
 X-GNOME-Autostart-Notify=false
 X-GNOME-Autostart-Phase=WindowManager
 X-GNOME-Provides=windowmanager
