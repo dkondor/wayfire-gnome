@@ -10,7 +10,7 @@ infrastructure on Arch Linux.
 ## Work in progress
 
 This repository is currently work-in-progress. Right now, the Sway session is 
-started by GDM, but crashes due to some ‘display not found’ errors from the 
+started by GDM, but some daemons crash due to some ‘display not found’ errors from the 
 GNOME settings daemons, for example:
 
 ```
@@ -25,6 +25,6 @@ Jan 12 15:37:33 <host> gnome-session-binary[818]: Unrecoverable failure in requi
 Jan 12 15:37:33 <host> gnome-session-binary[818]: WARNING: App 'org.gnome.SettingsDaemon.Power.desktop' respawning too quickly
 ```
 
-I don’t know why this is yet. Help wanted!
+As a result not all daemons are enabled and further work is necessary for full-compatibility!
 
 [Sway]: https://github.com/swaywm/sway
