@@ -4,27 +4,19 @@
 
 --------------------------------------------------------------------------------
 
-Allows you to use [Sway], a tiling window manager, with GNOME 3 Session 
+Allows you to use [Sway](https://github.com/swaywm/sway), a tiling window manager, with GNOME 3 Session 
 infrastructure on Arch Linux.
 
 ## Work in progress
 
 This repository is currently work-in-progress. Right now, the Sway session is 
-started by GDM, but some daemons crash due to some ‘display not found’ errors from the 
-GNOME settings daemons, for example:
+started by GDM, modelled after sway's [systemd integration wiki page](https://github.com/swaywm/sway/wiki/Systemd-integration).
 
-```
-Jan 12 15:37:33 <host> org.gnome.SettingsDaemon.Power.desktop[850]: Cannot open display:
-Jan 12 15:37:33 <host> gnome-session[818]: gnome-session-binary[818]: WARNING: App 'org.gnome.SettingsDaemon.Power.desktop' exited with code 1
-Jan 12 15:37:33 <host> gnome-session-binary[818]: WARNING: App 'org.gnome.SettingsDaemon.Power.desktop' exited with code 1
-Jan 12 15:37:33 <host> org.gnome.SettingsDaemon.Power.desktop[891]: Cannot open display:
-Jan 12 15:37:33 <host> gnome-session[818]: gnome-session-binary[818]: WARNING: App 'org.gnome.SettingsDaemon.Power.desktop' exited with code 1
-Jan 12 15:37:33 <host> gnome-session[818]: gnome-session-binary[818]: WARNING: App 'org.gnome.SettingsDaemon.Power.desktop' respawning too quickly
-Jan 12 15:37:33 <host> gnome-session-binary[818]: WARNING: App 'org.gnome.SettingsDaemon.Power.desktop' exited with code 1
-Jan 12 15:37:33 <host> gnome-session-binary[818]: Unrecoverable failure in required component org.gnome.SettingsDaemon.Power.desktop
-Jan 12 15:37:33 <host> gnome-session-binary[818]: WARNING: App 'org.gnome.SettingsDaemon.Power.desktop' respawning too quickly
-```
+Some further unit files are included to launch as many gnome deamon in the background as possible in a non-gnome-shell wayland session.
+Not all daemons are enabled and further work is necessary for full-compatibility!
 
-As a result not all daemons are enabled and further work is necessary for full-compatibility!
+## Usage
 
-[Sway]: https://github.com/swaywm/sway
+You may install the system files via `sudo make install` and then copy the contents of `systemd/user` to `$HOME/.config/systemd/user` and adjust them for your personal needs.
+
+In your login manager `Sway (systemd)` should be startable as a new session.
