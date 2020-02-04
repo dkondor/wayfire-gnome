@@ -12,7 +12,7 @@ bindsym XF86AudioNext         exec playerctl next
 bindsym XF86AudioPrev         exec playerctl previous
 
 # Lockscreen
-bindsym $mod+l exec swaylock
+bindsym $mod+Escape exec swaylock
 # Desktop portal
 exec /usr/libexec/xdg-desktop-portal -r
 
