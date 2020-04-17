@@ -1,5 +1,6 @@
 services = [
   'gnome-keyring.service',
+  'polkit-gnome.service',
   'sway-session-pre.target',
   'sway-session.target',
   'sway.service',
