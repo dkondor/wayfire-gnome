@@ -1,0 +1,8 @@
+project('sway-gnome',
+  [],
+  meson_version: '>=0.49'
+)
+
+subdir('bin')
+subdir('config')
+subdir('wayland-sessions')
