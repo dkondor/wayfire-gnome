@@ -1,9 +1,14 @@
 [Unit]
 Description=GNOME Keyring
-OnFailureJobMode=replace-irreversibly
-CollectMode=inactive-or-failed
-After=sway.service
 
 [Service]
-Type=oneshot
-ExecStart=/bin/sh -c '/usr/bin/gnome-keyring-daemon --components=ssh,secrets,pkcs11 --start; /usr/bin/systemctl --user import-environment SSH_AUTH_SOCK;'
+Type=dbus
+BusName=org.gnome.keyring
+BusName=org.freedesktop.secrets
+ExecStart=/usr/bin/gnome-keyring-daemon --components=ssh,secrets,pkcs11 \
+--start --foreground --control-directory=%t/keyring
+ExecStartPost=/usr/bin/systemctl --user set-environment SSH_AUTH_SOCK=%t/keyring/ssh
+ExecStopPost=/usr/bin/systemctl --user unset-environment SSH_AUTH_SOCK
+
+[Install]
+WantedBy=wayland-session-pre.target

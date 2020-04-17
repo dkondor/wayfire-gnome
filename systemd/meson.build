@@ -1,4 +1,5 @@
 services = [
+  'gnome-keyring.service',
   'sway-session-pre.target',
   'sway-session.target',
   'sway.service',
