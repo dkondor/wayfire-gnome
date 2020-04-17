@@ -1,0 +1,9 @@
+[Unit]
+Description=Session services which should run early before the sway session is brought up
+Documentation=man:systemd.special(7)
+Requires=basic.target
+Before=sway-session.target
+RefuseManualStart=yes
+StopWhenUnneeded=yes
+BindsTo=wayland-session-pre.target
+Before=wayland-session-pre.target
