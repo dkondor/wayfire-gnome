@@ -1,0 +1,7 @@
+# Mostly from https://github.com/swaywm/sway/wiki/Systemd-integration
+
+[Desktop Entry]
+Name=Wayfire (systemd)
+Comment=Run a Wayfire session as a systemd service
+Exec=wayfire-user-service
+Type=Application

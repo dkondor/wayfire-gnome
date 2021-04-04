@@ -1,8 +1,8 @@
 [Unit]
-Description=Session services which should run early before the sway session is brought up
+Description=Session services which should run early before the Wayfire session is brought up
 Documentation=man:systemd.special(7)
 Requires=basic.target
-Before=sway-session.target
+Before=wayfire-session.target
 RefuseManualStart=yes
 StopWhenUnneeded=yes
 BindsTo=wayland-session-pre.target

@@ -1,9 +1,9 @@
 services = [
   'gnome-keyring.service',
   'polkit-gnome.service',
-  'sway-session-pre.target',
-  'sway-session.target',
-  'sway.service',
+  'wayfire-session-pre.target',
+  'wayfire-session.target',
+  'wayfire.service',
   'wayland-session-pre.target',
   'wayland-session.target'
 ]
