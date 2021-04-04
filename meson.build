@@ -4,6 +4,6 @@ project('sway-gnome',
 )
 
 subdir('bin')
-subdir('config')
+# subdir('config')
 subdir('systemd')
 subdir('wayland-sessions')
