@@ -8,4 +8,4 @@ Type=simple
 ExecStart=/usr/bin/swayidle -w before-sleep swaylock
 
 [Install]
-WantedBy=sway-session.target
+WantedBy=wayfire-session.target

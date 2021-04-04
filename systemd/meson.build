@@ -1,5 +1,5 @@
 services = [
-  'gnome-keyring.service',
+  'swayidle.service',
   'polkit-gnome.service',
   'wayfire-session-pre.target',
   'wayfire-session.target',
