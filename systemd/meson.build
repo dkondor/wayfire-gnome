@@ -1,5 +1,4 @@
 services = [
-  'swayidle.service',
   'polkit-gnome.service',
   'wayfire-session-pre.target',
   'wayfire-session.target',
@@ -9,3 +8,4 @@ services = [
 ]
 
 install_data(services, install_dir: 'lib/systemd/user')
+subdir('wayfire-session.target.wants')

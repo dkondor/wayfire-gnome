@@ -1,9 +1,9 @@
 project('sway-gnome',
-  [],
-  meson_version: '>=0.49'
+  version: '1.0',
+  meson_version: '>=0.61'
 )
 
 subdir('bin')
-# subdir('config')
 subdir('systemd')
 subdir('wayland-sessions')
+install_data('wayfire-env', install_dir: '/etc/xdg')

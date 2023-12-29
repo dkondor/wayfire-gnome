@@ -9,6 +9,7 @@ Before=wayfire-session.target
 
 [Service]
 Type=notify
+EnvironmentFile=/etc/xdg/wayfire-env
 EnvironmentFile=-%h/.config/wayfire-env
 ExecStart=/usr/local/bin/wayfire
 Restart=on-failure
