@@ -25,14 +25,6 @@ This will create a session `Wayfire (systemd)` that can be selected from your lo
 
 ## Additional setup
 
-### Fixing gnome-keyring for managing ssh keys
-
-You need to manually delete the following files if they exist:
-```
-/etc/xdg/autostart/gnome-keyring-ssh.desktop
-~/.config/autostart/gnome-keyring-ssh.desktop
-```
-
 ### Setting correct environment variables
 
 You need to add the following commands to Wayfire's autostart plugin:
