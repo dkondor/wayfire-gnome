@@ -12,6 +12,8 @@ Allows you to use [Wayfire](https://github.com/WayfireWM/wayfire) with some GNOM
  * Keyring integration
  * Basic session components
 
+Note: it does not actually run `gnome-session`
+
 ## Usage
 
 You may install the system files via Meson:
@@ -39,9 +41,11 @@ I find that these are easier to start from Wayfire and can be added to the autos
 ```
 /usr/libexec/gsd-rfkill
 /usr/libexec/gsd-xsettings
+/usr/libexec/gsd-power
+/usr/lib/x86_64-linux-gnu/indicator-bluetooth/indicator-bluetooth-service
 ```
 
-Of course, further components, such as a notification daemon, desktop background and a panel or dock can be added here.
+Of course, further components, such as a notification daemon, desktop background and a panel or dock can be added here. Components that provide Systemd unit file can also be enabled with `systemctl` and thus will work for other compositors as well.
 
 
 
