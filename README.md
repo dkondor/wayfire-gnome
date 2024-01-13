@@ -45,7 +45,10 @@ I find that these are easier to start from Wayfire and can be added to the autos
 /usr/lib/x86_64-linux-gnu/indicator-bluetooth/indicator-bluetooth-service
 ```
 
-Of course, further components, such as a notification daemon, desktop background and a panel or dock can be added here. Components that provide Systemd unit file can also be enabled with `systemctl` and thus will work for other compositors as well.
+Of course, further components, such as a notification daemon, desktop background and a panel or dock can be added here. Components that provide Systemd unit file can also be enabled with `systemctl` and thus will work for other compositors as well. E.g. using the [unit file for mako](https://github.com/emersion/mako/blob/master/contrib/systemd/mako.service):
+```
+systemctl --user enable mako.service
+```
 
 
 
