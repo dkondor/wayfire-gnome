@@ -22,11 +22,19 @@ source /etc/profile
 # Save environment before adding to systemd (to be removed after sway stops)
 new_envs=$(systemctl --user show-environment | cut -d'=' -f 1 | sort | comm -13 - <(env | cut -d'=' -f 1 | sort))
 
+export XDG_CURRENT_DESKTOP=Wayfire:GNOME
+export MOZ_ENABLE_WAYLAND=1
+export _JAVA_AWT_WM_NOREPARENTING=1
+export QT_QPA_PLATFORM=wayland
+
 # first import environment variables from the login manager
 systemctl --user import-environment
 
 # then start the service
-systemctl --wait --user start wayfire.service
+systemctl --wait --user start wayfire-session.target
 
 # Cleanup environment (see above)
 systemctl --user unset-environment $new_envs
+systemctl --user unset-environment XDG_CURRENT_DESKTOP MOZ_ENABLE_WAYLAND _JAVA_AWT_WM_NOREPARENTING QT_QPA_PLATFORM
+
+
