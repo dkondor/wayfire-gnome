@@ -3,14 +3,12 @@
 [Unit]
 Description=Wayfire - 3D wayland compositor
 BindsTo=wayfire-session.target
-Wants=wayfire-session-pre.target
-After=wayfire-session-pre.target
-Before=wayfire-session.target
+Required=graphical-session-pre.target
+After=graphical-session-pre.target
+Before=wayfire-session-pre.target
 
 [Service]
 Type=notify
-EnvironmentFile=/etc/xdg/wayfire-env
-EnvironmentFile=-%h/.config/wayfire-env
 ExecStart=/usr/local/bin/wayfire
 Restart=on-failure
 RestartSec=1

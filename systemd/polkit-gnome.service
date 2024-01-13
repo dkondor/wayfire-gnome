@@ -1,11 +1,10 @@
 [Unit]
 Description=Legacy polkit authentication agent for GNOME
-PartOf=wayland-session.target
-After=wayland-session.target
+After=graphical-session-pre.target
 
 [Service]
 Type=simple
 ExecStart=/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 [Install]
-WantedBy=wayland-session.target
+WantedBy=graphical-session.target

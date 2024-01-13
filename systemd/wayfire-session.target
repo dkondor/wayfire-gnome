@@ -2,7 +2,9 @@
 Description=Wayfire user session
 Documentation=man:systemd.special(7)
 Requires=basic.target
-RefuseManualStart=yes
+BindsTo=graphical-session.target
+Before=graphical-session.target
+Requires=wayfire-session-pre.target
+After=wayfire-session-pre.target
 StopWhenUnneeded=yes
-BindsTo=wayland-session.target
-Before=wayland-session.target
+Wants=polkit-gnome.service
