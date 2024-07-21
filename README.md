@@ -35,6 +35,30 @@ You need to add the following commands to Wayfire's autostart plugin:
 dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY WAYFIRE_SOCKET
 ```
 
+### SSH agent on Ubuntu 24.04
+
+On Ubuntu 24.04, unlocking SSH keys might not work properly. I've found two related problems:
+ - Two ssh agents get started: `gpg-agent.service` with `gpg-agent-ssh.socket` and `gcr-ssh-agent.service`; only the latter works, but the former seems "preferred"
+ - The GCR ssh agent does not set the `SSH_AUTH_SOCK` environment variable properly
+
+The first issue is solved by running (some) of these commands to disable gpg-agent:
+```
+systemctl --user disable gpg-agent.service
+systemctl --user disable gpg-agent-ssh.socket
+sudo systemctl --global disable gpg-agent-ssh.socket
+```
+
+The second issue is solved by editing the GCR service file by running the following command:
+```
+systemctl --user edit gcr-ssh-agent.service
+```
+and adding the following two lines:
+```
+ExecStartPost=systemctl --user set-environment SSH_AUTH_SOCK=%t/gcr/ssh
+ExecStopPost=systemctl --user unset-environment SSH_AUTH_SOCK
+```
+
+
 ### Additional desktop components
 
 I find that these are easier to start from Wayfire and can be added to the autostart plugin:
