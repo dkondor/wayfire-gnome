@@ -4,11 +4,10 @@
 
 --------------------------------------------------------------------------------
 
-Allows you to use [Wayfire](https://github.com/WayfireWM/wayfire) with some GNOME components. Tested on Ubuntu 22.04.
+Allows you to use [Wayfire](https://github.com/WayfireWM/wayfire) with some GNOME components. Tested on Ubuntu 22.04 and 24.04.
 
 ## What this enables
 
- * Privilege management
  * Keyring integration
  * Basic session components
 
@@ -68,6 +67,12 @@ I find that these are easier to start from Wayfire and can be added to the autos
 /usr/libexec/gsd-power
 /usr/lib/x86_64-linux-gnu/indicator-bluetooth/indicator-bluetooth-service
 ```
+
+For privilege management, I recommend the Polkit agent of the Mate desktop, available as the `mate-polkit` package on Ubuntu. Add it to the autostart as well:
+```
+/usr/libexec/polkit-mate-authentication-agent-1
+```
+Note: the GNOME Polkit agent does not seem to work, at least on Ubuntu 24.04.
 
 Of course, further components, such as a notification daemon, desktop background and a panel or dock can be added here. Components that provide Systemd unit file can also be enabled with `systemctl` and thus will work for other compositors as well. E.g. using the [unit file for mako](https://github.com/emersion/mako/blob/master/contrib/systemd/mako.service):
 ```

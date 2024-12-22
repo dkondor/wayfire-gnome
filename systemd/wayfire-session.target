@@ -7,4 +7,3 @@ Before=graphical-session.target
 Requires=wayfire-session-pre.target
 After=wayfire-session-pre.target
 StopWhenUnneeded=yes
-Wants=polkit-gnome.service

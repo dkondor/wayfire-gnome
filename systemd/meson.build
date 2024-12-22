@@ -1,5 +1,4 @@
 services = [
-  'polkit-gnome.service',
   'wayfire-session-pre.target',
   'wayfire-session.target',
   'wayfire.service',
